@@ -1,7 +1,7 @@
 # This example requires the 'message_content' intent.
 
 import discord
-import openai
+import ollama
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -17,7 +17,8 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content.startswith('$hello'):
-        await message.channel.send('Hello!')
+    if message.content.startswith('super facto del dia'):
+        response = ollama.generate(model='llama3', prompt='give me a random fact in spanish under 50 characters, just give me the fact and nothing else')
+        await message.channel.send(response['response'])
 
-#client.run('your-token')
+client.run('MTI1MzQ3NzI3Njg4NTA2MTgwMw.Gv0UJu.qpQyQrRhpimMzVhHGk-OEO16rQcdfBXPodsLYc')

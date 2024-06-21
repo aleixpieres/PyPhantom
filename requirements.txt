@@ -2,11 +2,11 @@ python3 -m pip install -U discord.py
 
 sudo apt install libffi-dev libnacl-dev python3-dev
 
+curl -fsSL https://ollama.com/install.sh | sh
 
-wget https://raw.githubusercontent.com/meta-llama/llama3/main/download.sh
+ollama serve
 
-./download.sh 
-
+ollama run llama3
 
 
 # https://discordpy.readthedocs.io/en/stable/#getting-started
