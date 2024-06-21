@@ -1,0 +1,12 @@
+python3 -m pip install -U discord.py
+
+sudo apt install libffi-dev libnacl-dev python3-dev
+
+
+wget https://raw.githubusercontent.com/meta-llama/llama3/main/download.sh
+
+./download.sh 
+
+
+
+# https://discordpy.readthedocs.io/en/stable/#getting-started
