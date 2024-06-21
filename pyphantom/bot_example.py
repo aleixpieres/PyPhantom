@@ -21,4 +21,4 @@ async def on_message(message):
         response = ollama.generate(model='llama3', prompt='give me a random fact in spanish under 50 characters, just give me the fact and nothing else')
         await message.channel.send(response['response'])
 
-client.run('MTI1MzQ3NzI3Njg4NTA2MTgwMw.Gv0UJu.qpQyQrRhpimMzVhHGk-OEO16rQcdfBXPodsLYc')
+client.run('your-token')
