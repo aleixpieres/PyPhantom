@@ -7,4 +7,4 @@ chmod +x install_dependencies.sh
 ./install_dependencies.sh
 
 
-# https://discordpy.readthedocs.io/en/stable/#getting-started
+https://discordpy.readthedocs.io/en/stable/#getting-started
