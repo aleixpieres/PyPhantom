@@ -15,8 +15,12 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content.startswith('super facto del dia'):
-        response = ollama.generate(model='llama3', prompt='give me a random fact in spanish under 50 characters, just give me the fact and nothing else')
+    if client.user.mentioned_in(message):
+
+        words = message.content.split()
+        pyphantom_propmt = ' '.join(words[1:])
+
+        response = ollama.generate(model='llama3', prompt=pyphantom_propmt + 'under 100 characters')
         await message.channel.send(response['response'])
 
-#client.run('your-token')
+client.run('your-token')
