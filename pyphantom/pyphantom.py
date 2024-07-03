@@ -13,13 +13,22 @@ async def on_ready():
 @client.event
 async def on_message(message):
     words = message.content.split()
-    message = ' '.join(words[1:])
-    if message.content == str('summary'):
+    c_message = ' '.join(words[1:2])
+    pyphantom_propmt = str("Summarize the key points of the next messages:\n")
+
+    if c_message == str('summary'):
         c_channel = discord.utils.get(message.guild.text_channels, name='pyphantom')
-        messages = [message async for message in c_channel.history(limit=5)]
-   
-        await message.channel.send(messages.len())
+        messages = [message async for message in c_channel.history(limit=10)]
+        messages.reverse()
+        for message in messages[1:]:
+            if message.author != client.user:
+                c_message = f"{message.author}: {message.content}\n"
+                pyphantom_propmt += c_message
+                
+        response = ollama.generate(model='llama3', prompt=pyphantom_propmt)
+        await message.channel.send(response['response'])
+
   
-client.run('')
+client.run('MTI1MzQ3NzI3Njg4NTA2MTgwMw.GLNJEP.3Jcfy8LO_Ln5OASOhfpYE_3lRdR-EL6LfYnqX0')
 
 

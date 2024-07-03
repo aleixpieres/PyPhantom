@@ -14,6 +14,15 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+    words = message.content.split()
+    c_limit = ' '.join(words[2:3])
+    try:
+        c_limit = int(c_limit)
+    except ValueError:
+        print("Invalid input for c_limit. Please enter a number.")
+
+    print(c_limit)
+    
     if message.author == client.user:
         return
 
@@ -21,7 +30,7 @@ async def on_message(message):
         response = ollama.generate(model='llama3', prompt='Provide a proven and accurate random fact in Spanish, under 50 characters, with no additional text.')
         await message.channel.send(response['response'])
 
-client.run('your-token')
+client.run('MTI1MzQ3NzI3Njg4NTA2MTgwMw.GLNJEP.3Jcfy8LO_Ln5OASOhfpYE_3lRdR-EL6LfYnqX0')
 
 
 '''
